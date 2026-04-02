@@ -1,0 +1,44 @@
+{
+  "jogadores": [
+    {
+      "nome": "Evelyn",
+      "idade": 17,
+      "telefone": 19987456321
+    },
+    {
+      "nome": "Davi",
+      "idade": "17",
+      "telefone": "19993349723"
+    },
+    {
+      "nome": "Bárbara",
+      "idade": "17",
+      "telefone": "1991837746"
+    }
+  ],
+  "personagens": [
+    {
+      "nome": "Daphne",
+      "idade": 28,
+      "classe": "Combatente",
+      "jogador": "Evelyn"
+    },
+    {
+      "nome": "Morgana",
+      "idade": "21",
+      "classe": "Ocultista",
+      "jogador": "Ana"
+    },
+    {
+      "nome": "Ignácio",
+      "idade": "36",
+      "classe": "Especialista",
+      "jogador": "Davi"
+    }
+  ],
+  "0": {
+    "nome": "Evelyn",
+    "idade": "18",
+    "telefone": "12456987895"
+  }
+}
