@@ -1,3 +1,4 @@
+# Atividade não finalizada...
 import json
 
 def menu():
