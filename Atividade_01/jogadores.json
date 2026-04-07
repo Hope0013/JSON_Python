@@ -1,19 +1,9 @@
 {
   "jogadores": [
     {
-      "nome": "Evelyn",
-      "idade": 17,
-      "telefone": 19987456321
-    },
-    {
-      "nome": "Davi",
+      "nome": "Ana",
       "idade": "17",
-      "telefone": "19993349723"
-    },
-    {
-      "nome": "Bárbara",
-      "idade": "17",
-      "telefone": "1991837746"
+      "telefone": "14478593652"
     }
   ],
   "personagens": [
@@ -24,21 +14,10 @@
       "jogador": "Evelyn"
     },
     {
-      "nome": "Morgana",
+      "nome": "Morgana Vallac",
       "idade": "21",
       "classe": "Ocultista",
-      "jogador": "Ana"
-    },
-    {
-      "nome": "Ignácio",
-      "idade": "36",
-      "classe": "Especialista",
-      "jogador": "Davi"
+      "jogador": "Ana S."
     }
-  ],
-  "0": {
-    "nome": "Evelyn",
-    "idade": "18",
-    "telefone": "12456987895"
-  }
+  ]
 }

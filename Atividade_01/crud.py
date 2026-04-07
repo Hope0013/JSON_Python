@@ -62,7 +62,7 @@ def adicionar_personagem():
 def escolher_grupo():
     print("\n===Jogadores ou Personagens===")
 
-    print("\n1. Jogadores")
+    print("1. Jogadores")
     print("2. Personagens")
 
     opcao = input("\nEscolha: ")
@@ -105,19 +105,19 @@ def  atualizar_jogador():
 
     index = int(input("Index do Jogador: ")) -1
 
-    if 0 <= index < len(dados):
+    if 0 <= index < len(dados["jogadores"]):
         nome = input("Novo nome: ")
         idade = input("Nova Idade: ")
         telefone = input("Novo telefone: ")
 
-        dados[index] = {
+        dados["jogadores"][index] = {
             "nome":nome,
             "idade": idade,
             "telefone":telefone
         }
 
         salvar_dados(dados)
-        print("Jogador Atualizado com Sucesso!")
+        print("\nJogador Atualizado com Sucesso!")
     else:
         print("Índice Inválido")
 
@@ -127,13 +127,13 @@ def  atualizar_personagem():
 
     index = int(input("Index do Personagem: ")) -1
 
-    if 0 <= index < len(dados):
+    if 0 <= index < len(dados["personagens"]):
         nome = input("Novo nome: ")
         idade = input("Nova Idade: ")
         classe = input("Nova Classe: ")
         jogador = input("Novo Jogador: ")
 
-        dados[index] = {
+        dados["personagens"][index] = {
             "nome":nome,
             "idade": idade,
             "classe":classe,
@@ -141,7 +141,7 @@ def  atualizar_personagem():
         }
 
         salvar_dados(dados)
-        print("Personagem Atualizado com Sucesso!")
+        print("\nPersonagem Atualizado com Sucesso!")
     else:
         print("Índice Inválido")
 
@@ -159,7 +159,7 @@ def excluir():
         dados[grupo].pop(index)
 
         salvar_dados(dados)
-        print("Excluído com Sucesso!")
+        print("\nExcluído com Sucesso!")
 
     else:
         print("Índice Inválido")
@@ -168,7 +168,7 @@ def main():
     while True:
         menu()
         
-        opcao = input("Escolha uma Opção:")
+        opcao = input("\nEscolha uma Opção: ")
         
         if opcao == "1":
             adicionar_jogador()
@@ -189,10 +189,10 @@ def main():
             excluir()
         
         elif opcao == "0":
-            print("Encerrando o programa...")
+            print("\nEncerrando o programa...")
             break
 
         else: 
-            print("Opção Inválida")
+            print("\nOpção Inválida")
 
 main()
