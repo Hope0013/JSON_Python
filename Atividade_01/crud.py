@@ -1,5 +1,6 @@
 import json
 
+# Menu inicial
 def menu():
     print("\n===RPG - Jogadores e Personagens===")
     print("1. Adicionar Jogador")
@@ -10,15 +11,17 @@ def menu():
     print("6. Excluir")
     print("0. Sair")
 
-    
+# Lê os dados Json
 def ler_dados():
     with open("jogadores.json", "r", encoding="utf-8") as arquivo:
         return json.load(arquivo)
 
+# Salva dados no json
 def salvar_dados(dados):
     with open("jogadores.json", "w", encoding="utf-8") as arquivo:
         json.dump(dados, arquivo, indent=2, ensure_ascii=False)
 
+# Função para adicionar um jogador
 def adicionar_jogador():
     
     print("\n===Adicione um Novo Jogador===")
@@ -29,7 +32,7 @@ def adicionar_jogador():
 
     dados = ler_dados()
 
-    dados["jogadores"].append({
+    dados["jogadores"].append({ # Colocamos "jogadores" para ele salvar no lugar certo do Json
         "nome": nome,
         "idade": idade,
         "telefone": telefone
@@ -38,6 +41,7 @@ def adicionar_jogador():
     salvar_dados(dados)
     print("\nJogador Adicionado com Sucesso!")
 
+# Adiciona personagem
 def adicionar_personagem():
 
     print("\n===Adicione um Novo Personagem===")
@@ -49,7 +53,7 @@ def adicionar_personagem():
 
     dados = ler_dados()
 
-    dados["personagens"].append({
+    dados["personagens"].append({ # Igual ao anterior, só que salva em personagens
         "nome": nome,
         "idade": idade,
         "classe": classe,
@@ -59,6 +63,7 @@ def adicionar_personagem():
     salvar_dados(dados)
     print("\nPersonagem Adicionado com Sucesso!")
 
+# Aqui é uma função de escolher grupo que é usada no excluir e no listar
 def escolher_grupo():
     print("\n===Jogadores ou Personagens===")
 
@@ -77,6 +82,7 @@ def escolher_grupo():
         print("Opção Inválida")
         return None
 
+# Lista as informações do Json e o escolher grupo é usado para o programa saber se queremos listar jogadores ou personagens
 def listar():
 
     grupo = escolher_grupo()
@@ -87,25 +93,28 @@ def listar():
     dados = ler_dados()
     print(f"\nLista de {grupo.upper()}: ")
 
-    for index, item in enumerate(dados[grupo], start=1): 
-        # Parte comum: Nome e Idade
+    for index, item in enumerate(dados[grupo], start=1): # Faz uma lista enumerada (começando do 1) com as informações na frente
+        
+        # Aqui temos a parte em comum de jogadores e personagens
         print(f"\n{index}. Nome: {item['nome']} | Idade: {item['idade']}", end="")
 
-        # Parte específica para Jogadores
+        # Já aqui, é uma parte específica para Jogadores
         if grupo == "jogadores":
             print(f" | Telefone: {item['telefone']}")
         
-        # Parte específica para Personagens
+        # E aqui uma parte específica para Personagens
         else:
             print(f" | Classe: {item['classe']} | Jogador: {item['jogador']}")
+    # Essas partes fazem com que, na hora da listagem, se você escolher jogador listará as caracteristicas atribuidas a ele como nome, idade e telefone; já no personagem lista nome, idade, classe e jogador
 
+# Atualiza as informações de um jogador
 def  atualizar_jogador():
     
     dados = ler_dados()
 
-    index = int(input("Index do Jogador: ")) -1
+    index = int(input("Index do Jogador: ")) -1 #O usuario entende que o indice começa em 1, mas no python começa em 0, então temos que diminuir 1, porque se a pessoa se refere ao indice 4, ele na verdade é 3
 
-    if 0 <= index < len(dados["jogadores"]):
+    if 0 <= index < len(dados["jogadores"]): # Confirma se o número não é negativo, se não for acessa a parte de jogadores do Json e atualiza as informações
         nome = input("Novo nome: ")
         idade = input("Nova Idade: ")
         telefone = input("Novo telefone: ")
@@ -121,6 +130,7 @@ def  atualizar_jogador():
     else:
         print("Índice Inválido")
 
+# Atualiza as informações de um personagem
 def  atualizar_personagem():
     
     dados = ler_dados()
@@ -145,6 +155,7 @@ def  atualizar_personagem():
     else:
         print("Índice Inválido")
 
+# Exclui algum personagem/jogador
 def excluir():
     grupo = escolher_grupo()
 
@@ -164,6 +175,7 @@ def excluir():
     else:
         print("Índice Inválido")
 
+# Função main, onde se iniciará o código. Ele começa com o nosso menu e cada numero dele corresponde a uma função
 def main():
     while True:
         menu()
@@ -194,5 +206,4 @@ def main():
 
         else: 
             print("\nOpção Inválida")
-
 main()
