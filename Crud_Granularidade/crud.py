@@ -1,5 +1,4 @@
 import json
-import os
 
 def menu():
     print("\n===Menu de Contatos===")
